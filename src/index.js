@@ -27,3 +27,4 @@ console.log(format(phone2));
 console.log(format(phone3));
 console.log(format(phone4));
 console.log(format(phone5));
+module.exports.format = format;
