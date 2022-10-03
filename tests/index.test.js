@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
 const cmbm = require('../src/index');
 
-console.log(cmbm.format('abcdefghij'))
-
 test('Sanity check', () => {
   expect(2 + 2).toBe(4);
 });
