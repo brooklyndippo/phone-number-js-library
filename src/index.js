@@ -1,30 +1,21 @@
 function format(phoneNumber) {
-    if (phoneNumber.toString().length !== 10) {
-        return 'Please enter a 10-digit phone number and try again.';
-    }
-    else if (isNaN(Number(phoneNumber))) {
+    var numString = phoneNumber.toString();
+    var phoneString = numString.replace(/[^a-zA-Z0-9]/g, '');
+    if (isNaN(Number(phoneString))) {
         return 'Please enter only numeric values and try again.';
     }
+    else if (phoneString.length !== 10) {
+        return 'Please enter a 10-digit phone number and try again.';
+    }
     else {
-        var numString = phoneNumber.toString();
         var formattedNumber = '(';
-        formattedNumber += numString.slice(0, 3);
+        formattedNumber += phoneString.slice(0, 3);
         formattedNumber += ') ';
-        formattedNumber += numString.slice(3, 6);
+        formattedNumber += phoneString.slice(3, 6);
         formattedNumber += '-';
-        formattedNumber += numString.slice(6, 10);
+        formattedNumber += phoneString.slice(6, 10);
         return formattedNumber;
     }
 }
 // get the length of an entry
-var phone1 = 12345;
-var phone2 = 1234567890;
-var phone3 = '12345';
-var phone4 = '1234567890';
-var phone5 = 'abcdefghij';
-console.log(format(phone1));
-console.log(format(phone2));
-console.log(format(phone3));
-console.log(format(phone4));
-console.log(format(phone5));
 module.exports.format = format;
